@@ -66,6 +66,7 @@ func main() {
 	deleteAllMale()
 }
 
+// 06. 删除所有男性角色
 func deleteAllMale() {
 
 	ret, err := db.Exec(deleteAllMaleSql)
@@ -83,6 +84,7 @@ func deleteAllMale() {
 	logrus.Infof("delete male RowAffected %d", nn)
 }
 
+// 05. 所有人工资涨 1000
 func increaseAmount(n int) {
 	ret, err := db.Exec(increaseAmountSql, n)
 	if err != nil {
@@ -99,6 +101,7 @@ func increaseAmount(n int) {
 	logrus.Infof("increase amount RowAffected %d", nn)
 }
 
+// 04. 查询所有工资大于 1000 的人
 func selectUserAmountGtN(n int) {
 	rows, err := db.Query(selectUserAmountGtNSql, n)
 	if err != nil {
@@ -119,6 +122,7 @@ func selectUserAmountGtN(n int) {
 	}
 }
 
+// 03. 将所有 id > 3 的人设置为 male
 func setGenderToMaleIDgtN(n int) {
 	ret, err := db.Exec(setGenderToMaleIDgtNSql, 3)
 	if err != nil {
@@ -133,6 +137,7 @@ func setGenderToMaleIDgtN(n int) {
 	logrus.Infof("update gender to male RowAffectd %d", nn)
 }
 
+// 02. 插入用户
 func insertUser() {
 	for _, user := range []User{
 		{
@@ -202,6 +207,7 @@ func insertUser() {
 	}
 }
 
+// 01. 创建表
 func createTable() {
 	ret, err := db.Exec(createTableSql)
 	if err != nil {
