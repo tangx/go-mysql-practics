@@ -8,6 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/shopspring/decimal"
 	"github.com/sirupsen/logrus"
+	"github.com/tangx/mysql-go-pratics/pkg/dbconn"
 )
 
 var db *sql.DB
@@ -237,5 +238,5 @@ func initDB() *sql.DB {
 }
 
 func init() {
-	db = initDB()
+	db = dbconn.InitDB()
 }
